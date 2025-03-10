@@ -4,9 +4,7 @@ function solveEquation(a, b, c) {
   let d = b ** 2 - 4 * a * c;
   let arr = [];
 
-  if (d < 0) {
-    return arr;
-  } else if (d === 0) {
+  if (d === 0) {
     arr.push(-b / (2 * a));
   } else if (d > 0) {
     let x1 = (-b + Math.sqrt(d)) / (2 * a);
@@ -21,9 +19,9 @@ console.log(solveEquation(1, 2, 2));
 
 // Задача №2
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let monthRate = (percent / 100) / 12;
+  let monthRate = percent / 100 / 12;
   let creditBody = amount - contribution;
-  let monthPay = creditBody * (monthRate + ((monthRate / (1 + monthRate) ** countMonths - 1)));
+  let monthPay = creditBody * (monthRate + (monthRate / ((1 + monthRate) ** countMonths - 1)));
   let totalPay = monthPay * countMonths;
   return Math.round(totalPay * 100) / 100;
 }
